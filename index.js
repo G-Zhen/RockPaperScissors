@@ -1,33 +1,26 @@
 function getComputerChoice() {
     //Computer: return random "Rock", "Paper", "Scissors"
-    const hand = ["Rock", "Paper", "Scissors"];
+    const hand = ["ROCK", "PAPER", "SCISSORS"];
     const random = Math.floor(Math.random() * hand.length);
-    const r = "Rock";
-    const p = "Paper";
-    const s = "Scissors";
-    
-    if (random == 1) {
-        return r;
-    } else if (random == 2) {
-        return p;
-    } else {return s};
+    return hand[random];
 }
-console.log(getComputerChoice())
+console.log(getComputerChoice()) // get rid of later
 
 function playRound(playerSelection, computerSelection) {
     // Plays 1 round 
-    // User answer (rock, Rock, ROck, etc) will not be case sensitive
-    let state = "Placement";
+    // User answer (rock, Rock, ROck, etc) will not be case sensitive; converts all player inputs into all caps
+    let playerText = playerSelection.toUpperCase();
     
-    
-    // if player wins
-    // return `You Win. ${playerSelection} beats ${computerSelection}!`
-
-    // if computer wins
-    // return `You Lose. ${computerSelection} beats ${playerSelection}!`
-
-    // if tie 
-    // return `Tie Game. ${playerSelection} is equal to ${computerSelection}!`
+    if (playerText == "ROCK" && computerSelection == "SCISSORS" || playerText == "SCISSORS" && computerSelection == "PAPER" || playerText == "PAPER" && computerSelection == "ROCK") {
+        // if player wins
+        return `You Win. ${playerText} beats ${computerSelection}!`
+    } else if (playerText == "SCISSORS" && computerSelection == "ROCK" || playerText == "PAPER" && computerSelection == "SCISSORS" || playerText == "ROCK" && computerSelection == "PAPER") {
+        // if computer wins
+        return `You Lose. ${computerSelection} beats ${playerText}!`
+    } else {
+        // if tie 
+        return `Tie Game. ${playerSelection} is equal to ${computerSelection}!`
+    }
 }
 
 function game() {
