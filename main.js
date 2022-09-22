@@ -6,7 +6,7 @@ function getComputerChoice(){
 }
 
 function getPlayerChoice() {
-    let valid = false
+    let valid = false;
     while (valid == false) {
         const input = prompt("ROCK, PAPER, or SCISSORS? Spelling matters. 5 rounds.");
         if (input == null) {
@@ -14,8 +14,8 @@ function getPlayerChoice() {
         }
         let upperInput = input.toUpperCase();
         if (hand.includes(upperInput) == true) {
-            valid = true;
-            return upperInput
+            valid = true
+            return upperInput;
         }
     }
 }
